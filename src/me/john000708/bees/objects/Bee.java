@@ -1,5 +1,6 @@
 package me.john000708.bees.objects;
 
+import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.Item.CustomItem;
 import org.bukkit.inventory.ItemStack;
 
 import me.john000708.bees.Items;
@@ -17,8 +18,8 @@ public class Bee extends SlimefunItem {
     private int lifespan;
     private int speed;
 
-    public Bee(Category category, String name, Species species, Type type, int lifespan, int speed) {
-        super(category, Items.BEE_ITEM, name, RecipeType.NULL, new ItemStack[] {null, null, null, null, null, null, null, null, null});
+    public Bee(Category category, String name, String id, Species species, Type type, int lifespan, int speed) {
+        super(category, new CustomItem(Items.BEE_ITEM, name), id, RecipeType.NULL, new ItemStack[] {null, null, null, null, null, null, null, null, null});
 
         this.species = species;
         this.type = type;
