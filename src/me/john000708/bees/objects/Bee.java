@@ -1,35 +1,37 @@
 package me.john000708.bees.objects;
 
+import org.bukkit.inventory.ItemStack;
+
+import me.john000708.bees.Items;
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.Category;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
-import org.bukkit.inventory.ItemStack;
 
 /**
  * Created by John on 20.05.2016.
  */
 public class Bee extends SlimefunItem {
 
-    private String species;
-    private Gender gender;
+    private Species species;
+    private Type type;
     private int lifespan;
     private int speed;
 
-    public Bee(Category category, ItemStack itemStack, String name, String species, Gender gender, int lifespan, int speed) {
-        super(category, itemStack, name, RecipeType.NULL, new ItemStack[]{null, null, null, null, null, null, null, null, null});
+    public Bee(Category category, String name, Species species, Type type, int lifespan, int speed) {
+        super(category, Items.BEE_ITEM, name, RecipeType.NULL, new ItemStack[] {null, null, null, null, null, null, null, null, null});
 
         this.species = species;
-        this.gender = gender;
+        this.type = type;
         this.lifespan = lifespan;
         this.speed = speed;
     }
 
-    public String getSpecies() {
+    public Species getSpecies() {
         return this.species;
     }
 
-    public Gender getGender() {
-        return this.gender;
+    public Type getType() {
+        return this.type;
     }
 
     public int getLifespan() {
@@ -40,12 +42,12 @@ public class Bee extends SlimefunItem {
         return this.speed;
     }
 
-    public void setSpecies(String name) {
-        this.species = name;
+    public void setSpecies(Species species) {
+        this.species = species;
     }
 
-    public void setGender(Gender gender) {
-        this.gender = gender;
+    public void setType(Type type) {
+        this.type = type;
     }
 
     public void setLifespan(int lifespan) {
