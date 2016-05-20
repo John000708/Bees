@@ -1,0 +1,7 @@
+main: me.john000708.bees.Bees
+name: Bees
+version: 0.0.1
+author: John000708
+commands:
+  getInfo:
+  alterStat:
