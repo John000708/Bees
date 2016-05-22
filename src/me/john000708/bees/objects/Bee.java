@@ -17,16 +17,16 @@ public class Bee extends SlimefunItem {
     private Type type;
     private int lifespan;
     private int speed;
-    private ItemStack honeycomb;
+    private ItemStack product;
 
-    public Bee(Category category, String name, String id, Species species, Type type, int lifespan, int speed, ItemStack honeycomb) {
+    public Bee(Category category, String name, String id, Species species, Type type, int lifespan, int speed, ItemStack product) {
         super(category, new CustomItem(Items.BEE_ITEM, name), id, RecipeType.NULL, new ItemStack[] {null, null, null, null, null, null, null, null, null});
 
         this.species = species;
         this.type = type;
         this.lifespan = lifespan;
         this.speed = speed;
-        this.honeycomb = honeycomb;
+        this.product = product;
     }
 
     public Species getSpecies() {
@@ -37,8 +37,12 @@ public class Bee extends SlimefunItem {
         return this.type;
     }
 
-    public ItemStack getHoneycomb(){
-        return this.honeycomb;
+    public ItemStack getProduct(){
+        return this.product;
+    }
+
+    public void setProduct(ItemStack item){
+        this.product = item;
     }
 
     public int getLifespan() {

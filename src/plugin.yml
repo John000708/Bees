@@ -2,6 +2,9 @@ main: me.john000708.bees.Bees
 name: Bees
 version: 0.0.1
 authors: [John000708, mrCookieSlime]
+
+depend: [CS-CoreLib, Slimefun]
+
 commands:
   getInfo:
   alterStat:

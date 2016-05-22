@@ -14,7 +14,13 @@ public class BeeItemHandler {
         ItemStack stack = item.clone();
         ItemMeta meta = stack.getItemMeta();
         List<String> lore = new ArrayList<String>();
-        lore.add("§b§e§e §a" + encode(fertility) + "§b" + encode(lifespan) + "§c" + encode(productivity));
+		if (meta.hasLore() && meta.getLore().size() > 0) {
+ 			lore = meta.getLore();
+ 			lore.set(0, "§b§e§e §a" + encode(fertility) + "§b" + encode(lifespan) + "§c" + encode(productivity));
+ 		}
+ 		else {
+ 			lore.add("§b§e§e §a" + encode(fertility) + "§b" + encode(lifespan) + "§c" + encode(productivity));
+ 		}
         meta.setLore(lore);
         stack.setItemMeta(meta);
         return stack;

@@ -26,13 +26,13 @@ public class Honeycombs {
             ex.printStackTrace();
         }
 
-        COMMON_COMB = new CustomItem(BASE_COMB, "&aCommon Comb");
-        FOREST_COMB = new CustomItem(BASE_COMB, "&aForest Comb");
-        MODEST_COMB = new CustomItem(BASE_COMB, "&aModest Comb");
-        MEADOWS_COMB = new CustomItem(BASE_COMB, "&aMeadows Comb");
-        NOBLE_COMB = new CustomItem(BASE_COMB, "&aNoble Comb");
-        WATER_COMB = new CustomItem(BASE_COMB, "&aWater Comb");
-        SINISTER_COMB = new CustomItem(BASE_COMB, "&aSinister Comb");
-        RURAL_COMB = new CustomItem(BASE_COMB, "&aRural Comb");
+        COMMON_COMB = new CustomItem(BASE_COMB, "&aCommon Comb", "§8\u21E8 §7Produced by: §e" + "&aCommon Queen");
+        FOREST_COMB = new CustomItem(BASE_COMB, "&aForest Comb", "§8\u21E8 §7Produced by: §e" + "&aForest Queen");
+        MODEST_COMB = new CustomItem(BASE_COMB, "&aModest Comb", "§8\u21E8 §7Produced by: §e" + "&aModest Queen");
+        MEADOWS_COMB = new CustomItem(BASE_COMB, "&aMeadows Comb", "§8\u21E8 §7Produced by: §e" + "&aMeadows Queen");
+        NOBLE_COMB = new CustomItem(BASE_COMB, "&aNoble Comb", "§8\u21E8 §7Produced by: §e" + "&aNoble Queen");
+        WATER_COMB = new CustomItem(BASE_COMB, "&aWater Comb", "§8\u21E8 §7Produced by: §e" + "&aWater Queen");
+        SINISTER_COMB = new CustomItem(BASE_COMB, "&aSinister Comb", "§8\u21E8 §7Produced by: §e" + "&aSinister Queen");
+        RURAL_COMB = new CustomItem(BASE_COMB, "&aRural Comb", "§8\u21E8 §7Produced by: §e" + "&aRural Queen");
     }
 }
