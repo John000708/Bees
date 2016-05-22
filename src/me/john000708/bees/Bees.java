@@ -27,11 +27,11 @@ public class Bees extends JavaPlugin {
         new Bee(bees, "&aCommon Princess", "COMMON_PRINCESS", Species.COMMON, Type.PRINCESS, 1, 1, Honeycombs.COMMON_COMB).register();
         new Bee(bees, "&aCommon Drone", "COMMON_DRONE", Species.COMMON, Type.DRONE, 1, 1, Honeycombs.COMMON_COMB).register();
 
-        new Bee(bees, "&aForest Queen", "FOREST_PRINCESS", Species.FOREST, Type.PRINCESS, 1, 1, Honeycombs.FOREST_COMB).register();
+        new Bee(bees, "&aForest Princess", "FOREST_PRINCESS", Species.FOREST, Type.PRINCESS, 1, 1, Honeycombs.FOREST_COMB).register();
         new Bee(bees, "&aForest Drone", "FOREST_DRONE", Species.FOREST, Type.DRONE, 1, 1, Honeycombs.FOREST_COMB).register();
 
         new Bee(bees, "&aMeadows Princess", "MEADOWS_PRINCESS", Species.MEADOWS, Type.PRINCESS, 1, 1, Honeycombs.MEADOWS_COMB).register();
-        new Bee(bees, "&aMeadows Drone", "MEADOWS_DRONE", Species.MEADOWS, Type.PRINCESS, 1, 1, Honeycombs.MEADOWS_COMB).register();
+        new Bee(bees, "&aMeadows Drone", "MEADOWS_DRONE", Species.MEADOWS, Type.DRONE, 1, 1, Honeycombs.MEADOWS_COMB).register();
 
         new Bee(bees, "&aModest Princess", "MODEST_PRINCESS", Species.MODEST, Type.PRINCESS, 1, 1, Honeycombs.MODEST_COMB).register();
         new Bee(bees, "&aModest Drone", "MODEST_DRONE", Species.MODEST, Type.DRONE, 1, 1, Honeycombs.MODEST_COMB).register();
