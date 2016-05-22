@@ -1,16 +1,21 @@
 package me.john000708.bees.machines;
 
+import me.john000708.bees.BeeItemHandler;
+import me.john000708.bees.objects.Bee;
 import me.mrCookieSlime.CSCoreLibPlugin.CSCoreLib;
+import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.Item.CustomItem;
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.Category;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
+import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.handlers.BlockTicker;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import me.mrCookieSlime.Slimefun.api.item_transport.ItemTransportFlow;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -59,11 +64,43 @@ public abstract class Apiary extends SlimefunItem {
         return new int[]{9, 18};
     }
 
+    public void register(boolean slimefun) {
+        addItemHandler(new BlockTicker() {
+            @Override
+            public boolean isSynchronized() {
+                return false;
+            }
+
+            @Override
+            public void uniqueTick() {
+
+            }
+
+            @Override
+            public void tick(Block block, SlimefunItem slimefunItem, Config config) {
+                Apiary.this.tick(block);
+            }
+        });
+        super.register(slimefun);
+    }
+
     protected void tick(Block b) {
         BlockMenu menu = BlockStorage.getInventory(b);
 
         for (int i : getInputSlots()) {
+            if (menu.getItemInSlot(i) != null) {
+                SlimefunItem slimefunItem = SlimefunItem.getByItem(BeeItemHandler.stripStats(menu.getItemInSlot(i)));
 
+                if (slimefunItem == null) return;
+
+                if (slimefunItem instanceof Bee) {
+                    Bee bee = (Bee) slimefunItem;
+
+                    if (BeeItemHandler.getStats(bee.getItem()).size() == 0) {
+                        menu.replaceExistingItem(i, BeeItemHandler.saveStats(bee.getItem(), 1, 1, 1));
+                    }
+                }
+            }
         }
     }
 
