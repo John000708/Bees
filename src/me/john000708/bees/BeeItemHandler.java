@@ -3,19 +3,23 @@ package me.john000708.bees;
 import java.util.ArrayList;
 import java.util.List;
 
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public class BeeItemHandler {
-
-	// John, rename these args to your stats
+	
 	public static ItemStack saveStats(ItemStack item, int fertility, int lifespan, int productivity) {
 		if (item == null) return null;
 		ItemStack stack = item.clone();
 		ItemMeta meta = stack.getItemMeta();
 		List<String> lore = new ArrayList<String>();
-		lore.add("§b§e§e §a" + encode(fertility) + "§b" + encode(lifespan) + "§c" + encode(productivity));
+		if (meta.hasLore() && meta.getLore().size() > 0) {
+			lore = meta.getLore();
+			lore.set(0, "§b§e§e §a" + encode(fertility) + "§b" + encode(lifespan) + "§c" + encode(productivity));
+		}
+		else {
+			lore.add("§b§e§e §a" + encode(fertility) + "§b" + encode(lifespan) + "§c" + encode(productivity));
+		}
 		meta.setLore(lore);
 		stack.setItemMeta(meta);
 		return stack;

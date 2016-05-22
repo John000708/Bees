@@ -20,9 +20,9 @@ public class Bees extends JavaPlugin {
         Category bees = new Category(new CustomItem(Items.BEE_ITEM, "&eBee-Keeping - &6Drones & Princesses", "", "&a> Click to open"));
         Category queens = new Category(new CustomItem(Items.BEE_ITEM, "&eBee-Keeping - &6Queens", "", "&a> Click to open"));
 
-        new Bee(bees, "&aCommon Drone", "COMMON_DRONE", Species.COMMON, Type.DRONE, 1, 1).register();
-        new Bee(bees, "&aCommon Princess", "COMMON_PRINCESS", Species.COMMON, Type.PRINCESS, 1, 1).register();
-        new Bee(queens, "&aCommon Queen", "COMMON_QUEEN", Species.COMMON, Type.QUEEN, 1, 1).register();
+        new Bee(bees, "&aCommon Drone", "COMMON_DRONE", Species.COMMON, Type.DRONE, 1, 1, new CustomItem(Items.HONEYCOMB, "&6Honeycomb", "", "§8\u21E8 §7Produced by: §e" + "&aCommon Queen")).register();
+        new Bee(bees, "&aCommon Princess", "COMMON_PRINCESS", Species.COMMON, Type.PRINCESS, 1, 1, new CustomItem(Items.HONEYCOMB, "&6Honeycomb", "", "§8\u21E8 §7Produced by: §e" + "&aCommon Queen")).register();
+        new Bee(queens, "&aCommon Queen", "COMMON_QUEEN", Species.COMMON, Type.QUEEN, 1, 1, new CustomItem(Items.HONEYCOMB, "&6Honeycomb", "", "§8\u21E8 §7Produced by: §e" + "&aCommon Queen")).register();
         new Apiary(utils, new CustomItem(Items.APIARY, "&6Apiary"), "APIARY", RecipeType.NULL, new ItemStack[]{null, null, null, null, null, null, null, null, null}) {
 
         }.register();

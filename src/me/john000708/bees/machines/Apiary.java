@@ -4,6 +4,7 @@ import me.mrCookieSlime.CSCoreLibPlugin.CSCoreLib;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.Item.CustomItem;
+import me.mrCookieSlime.CSCoreLibPlugin.general.Particles.MC_1_8.ParticleEffect;
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.Category;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
@@ -29,6 +30,7 @@ public abstract class Apiary extends SlimefunItem {
         super(category, itemStack, name, recipeType, recipe);
 
         new BlockMenuPreset(name, "&6Apiary") {
+        	
             public void init() {
                 constructMenu(this);
             }
@@ -67,7 +69,8 @@ public abstract class Apiary extends SlimefunItem {
         }
     }
 
-    private void constructMenu(BlockMenuPreset preset) {
+    @SuppressWarnings("deprecation")
+	private void constructMenu(BlockMenuPreset preset) {
         for (int i : inputBorder) {
             preset.addItem(i, new CustomItem(new MaterialData(Material.STAINED_GLASS_PANE, (byte) 9), " "), new ChestMenu.MenuClickHandler() {
                 @Override
