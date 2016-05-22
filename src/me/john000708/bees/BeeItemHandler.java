@@ -8,7 +8,7 @@ import java.util.List;
 
 public class BeeItemHandler {
 
-    // John, rename these args to your stats
+
     public static ItemStack saveStats(ItemStack item, int fertility, int lifespan, int productivity) {
         if (item == null) return null;
         ItemStack stack = item.clone();
