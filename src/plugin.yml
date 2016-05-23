@@ -6,5 +6,4 @@ authors: [John000708, mrCookieSlime]
 depend: [CS-CoreLib, Slimefun]
 
 commands:
-  getInfo:
-  alterStat:
+  getStats:

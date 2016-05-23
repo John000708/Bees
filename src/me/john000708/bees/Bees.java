@@ -8,8 +8,10 @@ import me.john000708.bees.objects.Type;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.Item.CustomItem;
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.Category;
+import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -60,7 +62,26 @@ public class Bees extends JavaPlugin {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("getStats")) {
+            if (sender instanceof Player) {
+                Player player = (Player) sender;
 
+                if (player.getInventory().getItem(player.getInventory().getHeldItemSlot()) != null) {
+                    ItemStack heldItem = player.getInventory().getItem(player.getInventory().getHeldItemSlot());
+                    if (SlimefunItem.getByItem(BeeItemHandler.stripStats(heldItem)) != null) {
+                        SlimefunItem item = SlimefunItem.getByItem(BeeItemHandler.stripStats(heldItem));
+
+                        if (item instanceof Bee) {
+                            Bee bee = (Bee)item;
+
+                            player.sendMessage("Species: " + bee.getSpecies().name());
+                            player.sendMessage("Product: " + bee.getProduct().getItemMeta().getDisplayName());
+                            player.sendMessage("Fertility: " + BeeItemHandler.getStats(heldItem).get(0));
+                            player.sendMessage("Lifespan: " + BeeItemHandler.getStats(heldItem).get(1));
+                            player.sendMessage("Productivity: " + BeeItemHandler.getStats(heldItem).get(2));
+                        }
+                    }
+                }
+            }
         }
         return true;
     }
